@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-09-17 12:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "damage_area",
+  "trade",
+  "severity",
+  "description",
+  "recommendation",
+  "photo",
+  "source_inspection"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "damage_area",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Damage Area",
+   "options": "Front\nRear\nLeft Side\nRight Side\nRoof\nGlass\nEngine\nTransmission\nSuspension\nBrakes\nSteering\nElectrical\nAC and Cooling\nInterior\nUnderbody\nOther",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "trade",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Trade",
+   "options": "Denter\nMechanic\nElectrician",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "default": "Moderate",
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "Minor\nModerate\nSevere"
+  },
+  {
+   "columns": 3,
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Damage Description",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "recommendation",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Recommendation"
+  },
+  {
+   "columns": 1,
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "in_list_view": 1,
+   "label": "Photo"
+  },
+  {
+   "fieldname": "source_inspection",
+   "fieldtype": "Link",
+   "label": "Source Inspection",
+   "options": "Vehicle Inspection",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-17 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Automotive Workshop",
+ "name": "Damage Assessment Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

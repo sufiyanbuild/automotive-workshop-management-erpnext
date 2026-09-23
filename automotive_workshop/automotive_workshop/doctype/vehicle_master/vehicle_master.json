@@ -1,0 +1,332 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-09-17 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_section",
+  "naming_series",
+  "customer",
+  "customer_name",
+  "make",
+  "model",
+  "year",
+  "vehicle_title",
+  "column_break_reg",
+  "registration_number",
+  "plate_type",
+  "registration_expiry",
+  "vin",
+  "status",
+  "details_section",
+  "vehicle_type",
+  "color",
+  "fuel_type",
+  "column_break_details",
+  "current_mileage",
+  "image",
+  "notes",
+  "history_section",
+  "service_history_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle"
+  },
+  {
+   "default": "VEH-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "VEH-.#####",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Make",
+   "reqd": 1
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "label": "Model Year",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "vehicle_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_reg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Saudi plate, e.g. ABC-1234 or أ ب ج 1234",
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Registration Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "Private",
+   "fieldname": "plate_type",
+   "fieldtype": "Select",
+   "label": "Plate Type",
+   "options": "Private\nCommercial\nTaxi\nMotorcycle\nDiplomatic\nOther"
+  },
+  {
+   "fieldname": "registration_expiry",
+   "fieldtype": "Date",
+   "label": "Registration (Istimara) Expiry"
+  },
+  {
+   "description": "17 characters. Letters I, O and Q are not used in a VIN.",
+   "fieldname": "vin",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "VIN / Chassis Number",
+   "length": 17,
+   "unique": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nIn Workshop\nInactive",
+   "read_only": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "label": "Vehicle Type",
+   "options": "\nSedan\nSUV\nHatchback\nPickup\nVan\nCoupe\nTruck\nMotorcycle\nOther"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Colour"
+  },
+  {
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "label": "Fuel Type",
+   "options": "\nPetrol\nDiesel\nHybrid\nElectric\nLPG"
+  },
+  {
+   "fieldname": "column_break_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Updated automatically from each Job Card intake.",
+   "fieldname": "current_mileage",
+   "fieldtype": "Int",
+   "label": "Current Mileage (km)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Vehicle Photo"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "history_section",
+   "fieldtype": "Section Break",
+   "label": "Service History"
+  },
+  {
+   "fieldname": "service_history_html",
+   "fieldtype": "HTML",
+   "label": "Service History"
+  }
+ ],
+ "image_field": "image",
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "links": [
+  {
+   "group": "Workshop",
+   "link_doctype": "Workshop Job Card",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Workshop",
+   "link_doctype": "Vehicle Inspection",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Billing",
+   "link_doctype": "Quotation",
+   "link_fieldname": "aw_vehicle"
+  },
+  {
+   "group": "Billing",
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "aw_vehicle"
+  }
+ ],
+ "modified": "2026-09-17 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Automotive Workshop",
+ "name": "Vehicle Master",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Reception",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Denter",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Mechanic",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Electrician",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Quality Inspector",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Department",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Store Keeper",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Department",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "registration_number,vin,customer_name,vehicle_title",
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "vehicle_title",
+ "track_changes": 1
+}

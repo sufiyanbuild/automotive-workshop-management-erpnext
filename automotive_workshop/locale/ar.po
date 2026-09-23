@@ -1,0 +1,319 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: automotive_workshop\n"
+"Report-Msgid-Bugs-To: sufiyanshaikh1414@gmail.com\n"
+"POT-Creation-Date: 2026-09-17 12:00+0000\n"
+"PO-Revision-Date: 2026-09-17 12:00+0000\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+# DocTypes
+msgid "Workshop Job Card"
+msgstr "بطاقة عمل الورشة"
+
+msgid "Vehicle Master"
+msgstr "بيانات المركبة"
+
+msgid "Vehicle Inspection"
+msgstr "فحص المركبة"
+
+msgid "Damage Assessment"
+msgstr "تقييم الأضرار"
+
+msgid "Workshop Settings"
+msgstr "إعدادات الورشة"
+
+# Lifecycle statuses
+msgid "Inspection Completed"
+msgstr "تم إكمال الفحص"
+
+msgid "Awaiting Approval"
+msgstr "بانتظار الموافقة"
+
+msgid "Parts Pending"
+msgstr "بانتظار قطع الغيار"
+
+msgid "Work In Progress"
+msgstr "العمل قيد التنفيذ"
+
+msgid "Quality Check"
+msgstr "فحص الجودة"
+
+msgid "Invoiced"
+msgstr "تم إصدار الفاتورة"
+
+# Visual workflow stages
+msgid "Reception"
+msgstr "الاستقبال"
+
+msgid "Inspection"
+msgstr "الفحص"
+
+msgid "Assessment"
+msgstr "التقييم"
+
+msgid "Quotation"
+msgstr "عرض السعر"
+
+msgid "Approval"
+msgstr "الموافقة"
+
+msgid "Parts"
+msgstr "قطع الغيار"
+
+msgid "Repair"
+msgstr "الإصلاح"
+
+msgid "QC"
+msgstr "فحص الجودة"
+
+msgid "Invoice"
+msgstr "الفاتورة"
+
+msgid "Delivery"
+msgstr "التسليم"
+
+msgid "Delivered"
+msgstr "تم التسليم"
+
+msgid "Current Stage"
+msgstr "المرحلة الحالية"
+
+msgid "Next Action"
+msgstr "الإجراء التالي"
+
+msgid "Responsible"
+msgstr "المسؤول"
+
+# Roles
+msgid "Workshop Manager"
+msgstr "مدير الورشة"
+
+msgid "Denter"
+msgstr "فني سمكرة"
+
+msgid "Mechanic"
+msgstr "ميكانيكي"
+
+msgid "Electrician"
+msgstr "كهربائي"
+
+msgid "Quality Inspector"
+msgstr "مفتش الجودة"
+
+msgid "Purchase Department"
+msgstr "قسم المشتريات"
+
+msgid "Store Keeper"
+msgstr "أمين المستودع"
+
+msgid "Accounts Department"
+msgstr "قسم الحسابات"
+
+msgid "Technicians"
+msgstr "الفنيون"
+
+# Actions
+msgid "Start Inspection"
+msgstr "بدء الفحص"
+
+msgid "Create Damage Assessment"
+msgstr "إنشاء تقييم الأضرار"
+
+msgid "Prepare Quotation"
+msgstr "إعداد عرض السعر"
+
+msgid "Send Quotation"
+msgstr "إرسال عرض السعر"
+
+msgid "Record Customer Approval"
+msgstr "تسجيل موافقة العميل"
+
+msgid "Revise Quotation"
+msgstr "تعديل عرض السعر"
+
+msgid "Check Parts Availability"
+msgstr "التحقق من توفر قطع الغيار"
+
+msgid "Issue Parts to Job"
+msgstr "صرف قطع الغيار للبطاقة"
+
+msgid "Request Parts"
+msgstr "طلب قطع الغيار"
+
+msgid "Assign Repair Task"
+msgstr "تعيين مهمة إصلاح"
+
+msgid "Start Repair"
+msgstr "بدء الإصلاح"
+
+msgid "Update Repair Progress"
+msgstr "تحديث تقدم الإصلاح"
+
+msgid "Request Quality Check"
+msgstr "طلب فحص الجودة"
+
+msgid "Pass Quality Check"
+msgstr "اجتياز فحص الجودة"
+
+msgid "Reject Quality Check"
+msgstr "رفض فحص الجودة"
+
+msgid "Return to Repair"
+msgstr "الإرجاع إلى الإصلاح"
+
+msgid "Generate Sales Invoice"
+msgstr "إصدار فاتورة المبيعات"
+
+msgid "Record Payment"
+msgstr "تسجيل الدفعة"
+
+msgid "Release Vehicle"
+msgstr "تسليم المركبة"
+
+msgid "View Service History"
+msgstr "عرض سجل الصيانة"
+
+msgid "View Customer"
+msgstr "عرض العميل"
+
+msgid "View Quotation"
+msgstr "عرض عرض السعر"
+
+msgid "View Invoice"
+msgstr "عرض الفاتورة"
+
+msgid "View Repair Tasks"
+msgstr "عرض مهام الإصلاح"
+
+# Fields and labels
+msgid "Registration Number"
+msgstr "رقم اللوحة"
+
+msgid "Registration"
+msgstr "رقم اللوحة"
+
+msgid "VIN / Chassis Number"
+msgstr "رقم الهيكل"
+
+msgid "Customer Complaint"
+msgstr "شكوى العميل"
+
+msgid "Intake Date and Time"
+msgstr "تاريخ ووقت الاستلام"
+
+msgid "Mileage at Intake (km)"
+msgstr "قراءة العداد عند الاستلام (كم)"
+
+msgid "Current Mileage (km)"
+msgstr "قراءة العداد الحالية (كم)"
+
+msgid "Expected Delivery"
+msgstr "التسليم المتوقع"
+
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+msgid "Customer Approval"
+msgstr "موافقة العميل"
+
+msgid "Revision Requested"
+msgstr "مطلوب تعديل"
+
+msgid "Required Parts"
+msgstr "قطع الغيار المطلوبة"
+
+msgid "Labour"
+msgstr "أجور العمل"
+
+msgid "Labour Hours Worked"
+msgstr "ساعات العمل المنفذة"
+
+msgid "Estimated Labour Hours"
+msgstr "ساعات العمل المقدرة"
+
+msgid "Damage Area"
+msgstr "منطقة الضرر"
+
+msgid "Damage Description"
+msgstr "وصف الضرر"
+
+msgid "Check Point"
+msgstr "بند الفحص"
+
+msgid "Checklist"
+msgstr "قائمة الفحص"
+
+msgid "Findings"
+msgstr "النتائج"
+
+msgid "Recommendations"
+msgstr "التوصيات"
+
+msgid "QC Result"
+msgstr "نتيجة فحص الجودة"
+
+msgid "Passed"
+msgstr "ناجح"
+
+msgid "Failed"
+msgstr "غير ناجح"
+
+msgid "Outstanding"
+msgstr "المبلغ المتبقي"
+
+msgid "Service History"
+msgstr "سجل الصيانة"
+
+msgid "Vehicle Released"
+msgstr "تم تسليم المركبة"
+
+msgid "Delivery Notes"
+msgstr "ملاحظات التسليم"
+
+msgid "Trade"
+msgstr "التخصص"
+
+msgid "Technician"
+msgstr "الفني"
+
+msgid "Shortage"
+msgstr "نقص"
+
+msgid "Issued"
+msgstr "تم الصرف"
+
+msgid "Available"
+msgstr "متوفر"
+
+msgid "On Order"
+msgstr "تحت الطلب"
+
+msgid "Requested"
+msgstr "تم الطلب"
+
+# Key messages
+msgid "Repair cannot start because the customer quotation has not been approved."
+msgstr "لا يمكن بدء الإصلاح لأن عرض السعر لم يعتمد من العميل."
+
+msgid "Send the quotation to the customer before recording their decision."
+msgstr "أرسل عرض السعر إلى العميل قبل تسجيل قراره."
+
+msgid "Give the reason for returning the vehicle to repair."
+msgstr "اذكر سبب إرجاع المركبة إلى الإصلاح."
+
+msgid "The vehicle has already been released."
+msgstr "تم تسليم المركبة مسبقاً."
+
+msgid "Quality Check has not been passed."
+msgstr "لم يتم اجتياز فحص الجودة."
+
+msgid "No parts required"
+msgstr "لا توجد قطع غيار مطلوبة"
+
+msgid "Vehicle is in the workshop"
+msgstr "المركبة في الورشة"

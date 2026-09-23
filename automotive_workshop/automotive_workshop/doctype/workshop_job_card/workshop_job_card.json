@@ -1,0 +1,714 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-09-17 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "overview_tab",
+  "tracker_html",
+  "vehicle_section",
+  "naming_series",
+  "vehicle",
+  "vehicle_title",
+  "registration_number",
+  "vin",
+  "column_break_customer",
+  "customer",
+  "customer_name",
+  "contact_mobile",
+  "intake_section",
+  "intake_datetime",
+  "current_mileage",
+  "service_type",
+  "priority",
+  "column_break_intake",
+  "expected_delivery_date",
+  "workshop_manager",
+  "status",
+  "current_stage",
+  "complaint_section",
+  "complaint",
+  "column_break_complaint",
+  "intake_notes",
+  "intake_photo",
+  "inspection_tab",
+  "inspection_html",
+  "inspection_completed_on",
+  "assessment_tab",
+  "damage_assessment",
+  "column_break_assessment",
+  "assessment_total",
+  "quotation_tab",
+  "quotation",
+  "quotation_total",
+  "quotation_sent_on",
+  "column_break_quotation",
+  "customer_approval",
+  "approval_on",
+  "approval_remarks",
+  "procurement_tab",
+  "parts_html",
+  "repair_tab",
+  "repair_html",
+  "repair_started_on",
+  "column_break_repair",
+  "repair_completed_on",
+  "quality_tab",
+  "qc_inspection",
+  "qc_result",
+  "column_break_quality",
+  "qc_on",
+  "rework_count",
+  "billing_tab",
+  "sales_invoice",
+  "currency",
+  "invoice_total",
+  "column_break_billing",
+  "outstanding_amount",
+  "payment_status",
+  "delivery_tab",
+  "released",
+  "released_on",
+  "released_by",
+  "column_break_delivery",
+  "release_payment_status",
+  "delivery_notes",
+  "history_tab",
+  "history_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "overview_tab",
+   "fieldtype": "Tab Break",
+   "label": "Overview"
+  },
+  {
+   "fieldname": "tracker_html",
+   "fieldtype": "HTML",
+   "label": "Workflow"
+  },
+  {
+   "fieldname": "vehicle_section",
+   "fieldtype": "Section Break",
+   "label": "Customer and Vehicle"
+  },
+  {
+   "default": "JC-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "JC-.YYYY.-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Vehicle",
+   "options": "Vehicle Master",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "vehicle.vehicle_title",
+   "fieldname": "vehicle_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vehicle Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.registration_number",
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Registration",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.vin",
+   "fieldname": "vin",
+   "fieldtype": "Data",
+   "label": "VIN",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_customer",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "vehicle.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer.mobile_no",
+   "fieldname": "contact_mobile",
+   "fieldtype": "Data",
+   "label": "Mobile",
+   "options": "Phone",
+   "read_only": 1
+  },
+  {
+   "fieldname": "intake_section",
+   "fieldtype": "Section Break",
+   "label": "Reception"
+  },
+  {
+   "default": "now",
+   "fieldname": "intake_datetime",
+   "fieldtype": "Datetime",
+   "label": "Intake Date and Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_mileage",
+   "fieldtype": "Int",
+   "label": "Mileage at Intake (km)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "General Service",
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Service Type",
+   "options": "General Service\nMechanical Repair\nElectrical Repair\nBody and Paint\nAccident Repair\nAC Repair\nDiagnostics\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nUrgent"
+  },
+  {
+   "fieldname": "column_break_intake",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected Delivery"
+  },
+  {
+   "fieldname": "workshop_manager",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Workshop Manager",
+   "options": "User"
+  },
+  {
+   "allow_on_submit": 0,
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Open\nInspection Completed\nAwaiting Approval\nParts Pending\nWork In Progress\nQuality Check\nCompleted\nInvoiced",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "current_stage",
+   "fieldtype": "Data",
+   "label": "Current Stage",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "complaint_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "complaint",
+   "fieldtype": "Small Text",
+   "label": "Customer Complaint",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_complaint",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "intake_notes",
+   "fieldtype": "Small Text",
+   "label": "Intake Notes"
+  },
+  {
+   "fieldname": "intake_photo",
+   "fieldtype": "Attach Image",
+   "label": "Intake Photo"
+  },
+  {
+   "fieldname": "inspection_tab",
+   "fieldtype": "Tab Break",
+   "label": "Inspection"
+  },
+  {
+   "fieldname": "inspection_html",
+   "fieldtype": "HTML",
+   "label": "Inspections"
+  },
+  {
+   "fieldname": "inspection_completed_on",
+   "fieldtype": "Datetime",
+   "label": "Inspection Completed On",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "assessment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Assessment"
+  },
+  {
+   "fieldname": "damage_assessment",
+   "fieldtype": "Link",
+   "label": "Damage Assessment",
+   "no_copy": 1,
+   "options": "Damage Assessment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_assessment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assessment_total",
+   "fieldtype": "Currency",
+   "label": "Estimated Cost",
+   "no_copy": 1,
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quotation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Quotation"
+  },
+  {
+   "fieldname": "quotation",
+   "fieldtype": "Link",
+   "label": "Quotation",
+   "no_copy": 1,
+   "options": "Quotation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quotation_total",
+   "fieldtype": "Currency",
+   "label": "Quotation Total (incl. VAT)",
+   "no_copy": 1,
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quotation_sent_on",
+   "fieldtype": "Datetime",
+   "label": "Quotation Sent On",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_quotation",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_approval",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Customer Approval",
+   "no_copy": 1,
+   "options": "\nPending\nApproved\nRejected\nRevision Requested",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_on",
+   "fieldtype": "Datetime",
+   "label": "Approval Recorded On",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_remarks",
+   "fieldtype": "Small Text",
+   "label": "Approval Remarks",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "procurement_tab",
+   "fieldtype": "Tab Break",
+   "label": "Parts"
+  },
+  {
+   "fieldname": "parts_html",
+   "fieldtype": "HTML",
+   "label": "Parts"
+  },
+  {
+   "fieldname": "repair_tab",
+   "fieldtype": "Tab Break",
+   "label": "Repair"
+  },
+  {
+   "fieldname": "repair_html",
+   "fieldtype": "HTML",
+   "label": "Repair Tasks"
+  },
+  {
+   "fieldname": "repair_started_on",
+   "fieldtype": "Datetime",
+   "label": "Repair Started On",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_repair",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "repair_completed_on",
+   "fieldtype": "Datetime",
+   "label": "Repair Completed On",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "quality_tab",
+   "fieldtype": "Tab Break",
+   "label": "Quality"
+  },
+  {
+   "fieldname": "qc_inspection",
+   "fieldtype": "Link",
+   "label": "Quality Check",
+   "no_copy": 1,
+   "options": "Vehicle Inspection",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qc_result",
+   "fieldtype": "Select",
+   "label": "QC Result",
+   "no_copy": 1,
+   "options": "\nPassed\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_quality",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qc_on",
+   "fieldtype": "Datetime",
+   "label": "QC Recorded On",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "rework_count",
+   "fieldtype": "Int",
+   "label": "Rework Count",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "billing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "no_copy": 1,
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice_total",
+   "fieldtype": "Currency",
+   "label": "Invoice Total",
+   "no_copy": 1,
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_billing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Outstanding",
+   "no_copy": 1,
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Payment Status",
+   "no_copy": 1,
+   "options": "\nUnpaid\nPartly Paid\nPaid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivery_tab",
+   "fieldtype": "Tab Break",
+   "label": "Delivery"
+  },
+  {
+   "fieldname": "released",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Vehicle Released",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "released_on",
+   "fieldtype": "Datetime",
+   "label": "Released On",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "released_by",
+   "fieldtype": "Link",
+   "label": "Released By",
+   "no_copy": 1,
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_delivery",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "release_payment_status",
+   "fieldtype": "Data",
+   "label": "Payment Status at Release",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivery_notes",
+   "fieldtype": "Small Text",
+   "label": "Delivery Notes",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "history_tab",
+   "fieldtype": "Tab Break",
+   "label": "History"
+  },
+  {
+   "fieldname": "history_html",
+   "fieldtype": "HTML",
+   "label": "Vehicle Service History"
+  }
+ ],
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "links": [
+  {
+   "group": "Inspection",
+   "link_doctype": "Vehicle Inspection",
+   "link_fieldname": "job_card"
+  },
+  {
+   "group": "Inspection",
+   "link_doctype": "Damage Assessment",
+   "link_fieldname": "job_card"
+  },
+  {
+   "group": "Selling",
+   "link_doctype": "Quotation",
+   "link_fieldname": "aw_job_card"
+  },
+  {
+   "group": "Selling",
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "aw_job_card"
+  },
+  {
+   "group": "Selling",
+   "link_doctype": "Payment Entry",
+   "link_fieldname": "aw_job_card"
+  },
+  {
+   "group": "Parts",
+   "link_doctype": "Material Request",
+   "link_fieldname": "aw_job_card"
+  },
+  {
+   "group": "Parts",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "aw_job_card"
+  },
+  {
+   "group": "Parts",
+   "is_child_table": 1,
+   "link_doctype": "Purchase Order",
+   "link_fieldname": "aw_job_card",
+   "parent_doctype": "Purchase Order",
+   "table_fieldname": "items"
+  },
+  {
+   "group": "Repair",
+   "link_doctype": "Task",
+   "link_fieldname": "aw_job_card"
+  }
+ ],
+ "modified": "2026-09-17 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Automotive Workshop",
+ "name": "Workshop Job Card",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Reception",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Denter",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Mechanic",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Electrician",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Quality Inspector",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Department",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Store Keeper",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Department",
+   "share": 1
+  }
+ ],
+ "search_fields": "registration_number,customer_name,vehicle_title,status",
+ "show_preview_popup": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "vehicle_title",
+ "track_changes": 1
+}

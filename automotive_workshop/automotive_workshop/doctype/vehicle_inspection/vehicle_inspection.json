@@ -1,0 +1,305 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-09-17 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "inspection_section",
+  "naming_series",
+  "job_card",
+  "inspection_type",
+  "technician",
+  "inspection_datetime",
+  "column_break_vehicle",
+  "vehicle",
+  "vehicle_title",
+  "registration_number",
+  "customer",
+  "complaint",
+  "checklist_section",
+  "checklist",
+  "findings_section",
+  "overall_condition",
+  "estimated_labour_hours",
+  "qc_result",
+  "column_break_findings",
+  "findings",
+  "recommendations",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "inspection_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "INSP-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "INSP-.YYYY.-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "job_card",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Job Card",
+   "options": "Workshop Job Card",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "inspection_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Inspection Type",
+   "options": "Denter\nMechanic\nElectrician\nQuality Check",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "__user",
+   "fieldname": "technician",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Inspected By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "default": "now",
+   "fieldname": "inspection_datetime",
+   "fieldtype": "Datetime",
+   "label": "Inspection Date and Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vehicle",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "job_card.vehicle",
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle Master",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "job_card.vehicle_title",
+   "fieldname": "vehicle_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vehicle Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "job_card.registration_number",
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "label": "Registration",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "job_card.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "job_card.complaint",
+   "fieldname": "complaint",
+   "fieldtype": "Small Text",
+   "label": "Customer Complaint",
+   "read_only": 1
+  },
+  {
+   "fieldname": "checklist_section",
+   "fieldtype": "Section Break",
+   "label": "Checklist"
+  },
+  {
+   "fieldname": "checklist",
+   "fieldtype": "Table",
+   "label": "Checklist",
+   "options": "Vehicle Inspection Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "findings_section",
+   "fieldtype": "Section Break",
+   "label": "Findings"
+  },
+  {
+   "depends_on": "eval:doc.inspection_type!='Quality Check'",
+   "fieldname": "overall_condition",
+   "fieldtype": "Select",
+   "label": "Overall Condition",
+   "mandatory_depends_on": "eval:doc.inspection_type!='Quality Check'",
+   "options": "\nGood\nRepair Required"
+  },
+  {
+   "depends_on": "eval:doc.inspection_type!='Quality Check'",
+   "fieldname": "estimated_labour_hours",
+   "fieldtype": "Float",
+   "label": "Estimated Labour Hours",
+   "non_negative": 1
+  },
+  {
+   "depends_on": "eval:doc.inspection_type=='Quality Check'",
+   "fieldname": "qc_result",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "QC Result",
+   "mandatory_depends_on": "eval:doc.inspection_type=='Quality Check'",
+   "options": "\nPassed\nFailed"
+  },
+  {
+   "fieldname": "column_break_findings",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "findings",
+   "fieldtype": "Small Text",
+   "label": "Findings"
+  },
+  {
+   "fieldname": "recommendations",
+   "fieldtype": "Small Text",
+   "label": "Recommendations"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks",
+   "mandatory_depends_on": "eval:doc.qc_result=='Failed'"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Inspection",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "issingle": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-09-17 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Automotive Workshop",
+ "name": "Vehicle Inspection",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Denter",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Mechanic",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Electrician",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Quality Inspector",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Reception",
+   "share": 1
+  }
+ ],
+ "search_fields": "job_card,inspection_type,registration_number",
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "vehicle_title",
+ "track_changes": 1
+}

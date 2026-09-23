@@ -1,0 +1,13 @@
+{
+ "creation": "2026-09-17 12:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2026-09-17 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Automotive Workshop",
+ "name": "Workshop Revenue by Service Type",
+ "owner": "Administrator",
+ "source_name": "Workshop Revenue by Service Type",
+ "timeseries": 0
+}

@@ -1,0 +1,165 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-09-17 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "defaults_section",
+  "company",
+  "workshop_warehouse",
+  "selling_price_list",
+  "sales_taxes_template",
+  "column_break_defaults",
+  "labour_item",
+  "labour_rate",
+  "quotation_validity_days",
+  "release_section",
+  "require_full_payment",
+  "checklist_section",
+  "checklist_points"
+ ],
+ "fields": [
+  {
+   "fieldname": "defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Defaults"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "description": "Parts are checked for availability and issued to Job Cards from this warehouse.",
+   "fieldname": "workshop_warehouse",
+   "fieldtype": "Link",
+   "label": "Parts Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "selling_price_list",
+   "fieldtype": "Link",
+   "label": "Selling Price List",
+   "options": "Price List"
+  },
+  {
+   "description": "Applied to workshop quotations and invoices. Rates are maintained in the template, not in code.",
+   "fieldname": "sales_taxes_template",
+   "fieldtype": "Link",
+   "label": "VAT Template (Sales)",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "fieldname": "column_break_defaults",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "labour_item",
+   "fieldtype": "Link",
+   "label": "Labour Service Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "labour_rate",
+   "fieldtype": "Currency",
+   "label": "Default Labour Rate per Hour"
+  },
+  {
+   "default": "15",
+   "fieldname": "quotation_validity_days",
+   "fieldtype": "Int",
+   "label": "Quotation Validity (days)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "release_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Release"
+  },
+  {
+   "default": "1",
+   "description": "When unticked, a Workshop Manager may release an invoiced vehicle with an outstanding balance, with a recorded reason.",
+   "fieldname": "require_full_payment",
+   "fieldtype": "Check",
+   "label": "Require Full Payment Before Release"
+  },
+  {
+   "fieldname": "checklist_section",
+   "fieldtype": "Section Break",
+   "label": "Inspection Checklists"
+  },
+  {
+   "fieldname": "checklist_points",
+   "fieldtype": "Table",
+   "label": "Default Checklist Points",
+   "options": "Workshop Checklist Point"
+  }
+ ],
+ "is_submittable": 0,
+ "issingle": 1,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-09-17 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Automotive Workshop",
+ "name": "Workshop Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "Workshop Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Reception"
+  },
+  {
+   "read": 1,
+   "role": "Denter"
+  },
+  {
+   "read": 1,
+   "role": "Mechanic"
+  },
+  {
+   "read": 1,
+   "role": "Electrician"
+  },
+  {
+   "read": 1,
+   "role": "Quality Inspector"
+  },
+  {
+   "read": 1,
+   "role": "Accounts Department"
+  },
+  {
+   "read": 1,
+   "role": "Store Keeper"
+  },
+  {
+   "read": 1,
+   "role": "Purchase Department"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
